@@ -1,0 +1,28 @@
+/an external css file/
+#features{
+    background-color:beige;
+}
+
+body,h1, section{
+    border-style:dotted;
+    border-color: turquoise;
+    border-width: 2px;
+}
+h1{
+    /long hand/
+    padding-top: 10px;
+    padding-bottom: 10px;       
+    padding-left: 10px;
+    padding-right: 10px;
+    /shorthand/
+    padding: 10px;
+    /TRouBLe/
+    padding: 5px 10px 13px 50px;
+    /this applies to all margins/
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    
+
+}
