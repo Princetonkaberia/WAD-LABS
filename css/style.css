@@ -118,4 +118,162 @@ footer p {
 /* Footer horizontal rule */
 footer hr {
     border-color: var(--col-sunset);        /* sunset orange */
+}/* 
+   ASSIGNMENT: Fonts & Custom Fonts
+   --------------------------------
+   Font pairing: Young Serif (headings) + Instrument Sans (body)
+*/
+
+/* Body text: Instrument Sans with sans-serif fallback */
+body {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Headings: Young Serif with serif fallback */
+h1, h2 {
+    font-family: 'Young Serif', serif;
+}
+
+/* Example: If you wanted specific styling for other elements */
+h3, h4, h5, h6 {
+    font-family: 'Young Serif', serif;
+}
+
+p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* You can also use font-weight with numbers */
+.bold-text {
+    font-weight: 700; /* bold */
+}
+
+.italic-text {
+    font-style: italic;
+}
+/* ============================================================
+   GTA VI FAN PAGE COLOR SYSTEM
+   Lab 1.8 - CSS Colors
+   ============================================================
+
+   CSS Colors - Four ways to define color values:
+   1. named     - e.g. blue, red, pink (limited set)
+   2. hex       - hexadecimal values (0-9, A-F) e.g. #RRGGBB
+                  #ffffff = white,  #000000 = black
+                  Most common in web design
+   3. rgb       - e.g. rgb(255, 255, 255) = white, rgb(0, 0, 0) = black
+                  Each channel runs from 0 to 255
+   4. rgba      - same as rgb + transparency (alpha) value from 0 to 1
+                  0 = fully transparent, 1 = fully visible
+                  e.g. rgba(255, 79, 135, 0.5)
+*/
+
+/* ============================================================
+   :root — targets the <html> element.
+   It is the highest-level element on the page.
+   Variables defined here are available everywhere in the stylesheet.
+   ============================================================ */
+:root {
+
+    /* ===============================
+       BACKGROUND COLORS
+       =============================== */
+
+    --col-bg-deep: #08131f;              /* Deep night blue — hex color */
+    --col-bg-mid: #102030;               /* Main dark surface — hex color */
+    --col-bg-light: rgba(16, 32, 48, 0.82); /* Transparent glass effect — rgba color */
+
+    /* ===============================
+       PRIMARY ACCENT COLORS
+       =============================== */
+
+    --col-cyan: #00d5d8;                 /* Neon cyan — hex color */
+    --col-cyan-light: #4ff6ea;           /* Bright electric cyan — hex color */
+    --col-coral: #ff4f87;                /* GTA VI pink/coral — hex color */
+    --col-pink-soft: #ff9bb3;            /* Soft neon pink — hex color */
+    --col-sunset: #ff9f43;               /* Sunset orange — hex color */
+    --col-amber: #ffc46b;                /* Warm amber — hex color */
+
+    /* ===============================
+       TEXT COLORS
+       =============================== */
+
+    --col-cream: #fff8f2;                /* Main light text — hex color */
+    --col-muted: #7ea0b3;                /* Secondary muted text — hex color */
+}
+
+/* ============================================================
+   EXAMPLE: Using color values directly (without variables)
+   ============================================================ */
+
+/*
+   Named color:
+   h1 { color: pink; }
+
+   Hex color:
+   h1 { color: #000000; }   black
+   h1 { color: #ffffff; }   white
+   h1 { color: #ff0000; }   red  (full red, no green, no blue)
+
+   RGB color:
+   h1 { color: rgb(255, 0, 0); }     red
+   h1 { color: rgb(0, 0, 0); }       black
+   h1 { color: rgb(255, 255, 255); } white
+
+   RGBA color (with transparency):
+   h1 { color: rgba(255, 0, 0, 1);   }  fully visible red
+   h1 { color: rgba(255, 0, 0, 0.5); }  semi-transparent red
+   h1 { color: rgba(255, 0, 0, 0);   }  fully transparent (invisible)
+*/
+
+/* ============================================================
+   APPLYING THE COLOR PALETTE
+   Using var() to reference CSS variables defined in :root
+   ============================================================ */
+
+/* Page background and default text */
+body {
+    background-color: var(--col-bg-deep);   /* deep night blue background */
+    color: var(--col-cream);                /* light cream text */
+}
+
+/* Header area */
+header {
+    background-color: var(--col-bg-mid);    /* slightly lighter dark surface */
+    color: var(--col-cyan);                 /* neon cyan text */
+}
+
+/* Main heading */
+h1 {
+    color: var(--col-coral);                /* GTA VI pink/coral */
+}
+
+/* Section headings */
+h2 {
+    color: var(--col-cyan-light);           /* bright electric cyan */
+}
+
+/* Sub-headings */
+h4, h5 {
+    color: var(--col-amber);                /* warm amber */
+}
+
+/* Navigation links */
+nav a {
+    color: var(--col-pink-soft);            /* soft neon pink */
+}
+
+/* Muted/secondary text */
+footer p {
+    color: var(--col-muted);                /* secondary muted text */
+}
+
+/* Footer horizontal rule */
+footer hr {
+    border-color: var(--col-sunset);        /* sunset orange */
 }
