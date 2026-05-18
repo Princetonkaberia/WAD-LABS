@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lab 2.4 — Image and Footer</title>
+  <link rel="stylesheet" href="lab2.4-image-footer.css">
+</head>
+
+<body>
+
+  <!-- =============================================
+       HEADER
+  ============================================== -->
+  <header>
+    <h1>Rockstar <strong>Games</strong></h1>
+
+    <!-- NAV: ul > li > a structure -->
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gta6">GTA 6</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#characters">Characters</a></li>
+        <li><a href="https://www.rockstargames.com" target="_blank">Official Page</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =============================================
+       MAIN — centered with max-width + margin auto
+  ============================================== -->
+  <main>
+
+    <!-- SECTION: About -->
+    <section id="about">
+      <h2>About the Game</h2>
+      <p>
+        Grand Theft Auto VI is the highly anticipated next entry in Rockstar Games'
+        open-world action-adventure series. Set in the fictional state of Leonida,
+        it features the series' first playable female protagonist.
+      </p>
+    </section>
+
+    <!-- SECTION: GTA 6 -->
+    <section id="gta6">
+      <h2>GTA 6</h2>
+      <p>
+        <strong>GTA 6</strong> is set to redefine open-world gaming with a massive
+        map, improved AI, and a gripping dual-protagonist narrative. The game is
+        expected to push the boundaries of modern hardware.
+      </p>
+    </section>
+
+    <!-- SECTION: Features — unordered + ordered lists -->
+    <section id="features">
+      <h2>New Features</h2>
+
+      <h5>Gameplay Features</h5>
+      <p>The following new gameplay mechanics have been confirmed:</p>
+      <ul>
+        <li>Dynamic weather system affecting NPC behaviour</li>
+        <li>Seamless online integration from day one</li>
+        <li>Expanded vehicle and weapon customisation</li>
+        <li>Fully destructible environments</li>
+        <li>Realistic economy and property system</li>
+      </ul>
+
+      <h5>New Improvements</h5>
+      <p>
+        The game engine has been rebuilt from the ground up, offering
+        <em>unprecedented graphical fidelity</em> and physics simulation.
+      </p>
+
+      <h5>Top Anticipated Features (Ranked)</h5>
+      <ol>
+        <li>Dual-protagonist story campaign</li>
+        <li>Next-gen open world scale</li>
+        <li>Improved multiplayer infrastructure</li>
+        <li>Advanced NPC interaction system</li>
+        <li>Cross-platform progression</li>
+      </ol>
+    </section>
+
+    <!-- SECTION: Characters -->
+    <section id="characters">
+      <h2>Characters</h2>
+
+      <h4>Lucia</h4>
+      <p>
+        The series' first playable female protagonist. A skilled and determined
+        woman navigating the criminal underworld of Leonida with sharp instincts.
+      </p>
+
+      <h4>Jason</h4>
+      <p>
+        Lucia's partner in crime. A calculated and resourceful operator whose
+        loyalty is tested throughout the story.
+      </p>
+
+      <h4>Supporting Cast</h4>
+      <p>
+        A rich roster of <strong>fully voiced</strong> and <em>motion-captured</em>
+        characters that bring the world of Leonida to life.
+      </p>
+    </section>
+
+    <!-- SECTION: Logo Image
+         NOTE: inline width="50%" has been removed as per lab 2.4 instructions.
+         Width is now controlled entirely by CSS.
+    -->
+    <section id="logo">
+      <h2>Official Logo</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GTA_VI_Official_Logo.png/800px-GTA_VI_Official_Logo.png"
+           alt="GTA VI Official Logo" />
+    </section>
+
+  </main>
+
+  <!-- =============================================
+       HR — horizontal rule divider above footer
+  ============================================== -->
+  <hr>
+
+  <!-- =============================================
+       FOOTER
+  ============================================== -->
+  <footer>
+    <p>&copy; 2024 Rockstar Games. All rights reserved. GTA VI and related marks are trademarks of Rockstar Games.</p>
+  </footer>
+
+</body>
+</html>

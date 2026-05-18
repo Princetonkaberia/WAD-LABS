@@ -1195,4 +1195,277 @@ footer {
   font-size: 13px;
   color: var(--col-border);
   border-top: 1px solid var(--col-border);
+}/* ============================================================
+   CSS VARIABLES  (:root pseudo-class selector)
+   :root targets the <html> element — highest in the tree.
+   Variables: declared with --name, used with var(--name).
+============================================================ */
+:root {
+  --col-bg:         #0d0f14;
+  --col-surface:    #14171f;
+  --col-card:       #1a1e2a;
+  --col-text:       #e8e0d4;       /* cream */
+  --col-coral:      #ff6b6b;
+  --col-amber:      #ffb347;
+  --col-cyan:       #00e5ff;
+  --col-cyan-light: #7fffff;
+  --col-cyan-deep:  #0097a7;
+  --col-sunset:     #ff8c42;
+  --col-pink-soft:  #f48fb1;
+  --col-muted:      #7a8099;       /* muted grey for footer text */
+  --col-border:     #2a2f3f;
+  --font-main:      'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--col-bg);
+  color: var(--col-text);
+  font-family: var(--font-main);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   HEADER  (lab 2.1)
+============================================================ */
+header {
+  background-color: var(--col-surface);
+  border-bottom: 1px solid var(--col-border);
+  padding: 24px 40px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: var(--col-text);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+header h1 strong {
+  color: var(--col-coral);
+}
+
+/* ============================================================
+   NAV  (lab 2.1)
+============================================================ */
+nav {
+  margin-top: 10px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+nav ul li a {
+  color: var(--col-cyan-deep);
+  text-decoration: none;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--col-cyan-light);
+  display: inline-block;
+  transition:
+    background-color 0.3s ease,
+    border-color     0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: var(--col-cyan);
+  border-color: var(--col-pink-soft);
+  color: var(--col-bg);
+}
+
+/* ============================================================
+   MAIN  (lab 2.2)
+   Centering a block element: max-width + margin auto
+============================================================ */
+main {
+  max-width: 960px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+/* ============================================================
+   SECTIONS  (lab 2.2)
+============================================================ */
+section {
+  background-color: var(--col-card);
+  padding: 32px 36px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  border-left: 6px solid var(--col-coral);
+  transition:
+    border-left-color 0.6s ease,
+    box-shadow        0.4s ease,
+    transform         0.3s ease;
+}
+
+section:hover {
+  border-left-color: var(--col-cyan);
+  box-shadow: 0 8px 40px rgba(0, 229, 255, 0.08);
+  transform: translateX(4px);
+}
+
+/* H2 — section headings */
+section h2 {
+  color: var(--col-sunset);
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--col-amber);
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+
+/* H5 — sub-headings */
+section h5 {
+  color: var(--col-amber);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 20px 0 8px;
+}
+
+/* H4 — character titles (fixed in lab 2.3) */
+section h4,
+section h5 {
+  color: var(--col-amber);
+}
+
+section h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 20px 0 6px;
+  color: var(--col-text);
+}
+
+/* Paragraphs */
+section p {
+  color: var(--col-text);
+  font-size: 0.97rem;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+/* Bold text */
+section strong {
+  color: var(--col-coral);
+}
+
+/* Italic text */
+section em {
+  color: var(--col-cyan);
+  font-style: italic;
+}
+
+/* ============================================================
+   LIST STYLES  (lab 2.3)
+============================================================ */
+main ul,
+main ol {
+  padding-left: 24px;
+  color: var(--col-text);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+main li {
+  margin-left: 4px;
+  line-height: 1.9;
+}
+
+/* :first-child — pseudo-class selector (single colon)
+   Targets the FIRST li based on its position/state.      */
+main li:first-child {
+  color: var(--col-pink-soft);
+  font-weight: bold;
+}
+
+/* ::marker — pseudo-element selector (double colon)
+   Targets the bullet PART of the list item.              */
+main ul li::marker {
+  color: var(--col-cyan);
+}
+
+main ol li::marker {
+  color: var(--col-coral);
+}
+
+/* ============================================================
+   LAB 2.4 — IMAGE STYLING (new this lab)
+   -------------------------------------------------------
+   The inline width="50%" was removed from the HTML.
+   Width is now controlled here in CSS.
+
+   width: 100%
+   → percentage units are RELATIVE to the parent element.
+   → the parent here is the section (960px wide).
+   → so the image fills 100% of the section width.
+   → this also makes it responsive — it shrinks with the
+     section on smaller screens.
+
+   Note: max-width: 100% would behave the same here because
+   the image is inside a constrained container. Either works.
+
+   border-radius: 10px → rounds the image corners.
+============================================================ */
+img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;        /* removes the small gap below inline images */
+  margin-top: 12px;
+}
+
+/* ============================================================
+   LAB 2.4 — HR (horizontal rule)
+   -------------------------------------------------------
+   The HR divides the main content from the footer.
+   We style its border to match the header's border-bottom
+   so both ends of the page look consistent.
+
+   Shorthand: border: width  style  color
+============================================================ */
+hr {
+  border: 1px solid var(--col-cyan);
+  margin: 0;
+}
+
+/* ============================================================
+   LAB 2.4 — FOOTER STYLING (new this lab)
+   -------------------------------------------------------
+   text-align: center → centres the paragraph text
+   inside the footer block element.
+============================================================ */
+footer {
+  text-align: center;
+  padding: 24px 40px;
+  background-color: var(--col-surface);
+}
+
+/* footer p — paragraph inside the footer
+   color: --col-muted → a soft grey; not pure white,
+   just muted enough to feel like a secondary text.       */
+footer p {
+  color: var(--col-muted);
+  font-size: 13px;
+  line-height: 1.6;
 }
