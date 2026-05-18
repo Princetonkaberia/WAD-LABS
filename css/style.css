@@ -277,3 +277,685 @@ footer p {
 footer hr {
     border-color: var(--col-sunset);        /* sunset orange */
 }
+/* ============================================================
+   CSS VARIABLES — Design tokens
+============================================================ */
+:root {
+  --col-bg:       #0d0f14;
+  --col-surface:  #14171f;
+  --col-card:     #1a1e2a;
+  --col-coral:    #ff6b6b;
+  --col-amber:    #ffb347;
+  --col-cyan:     #00e5ff;
+  --col-cream:    #e8e0d4;
+  --col-sunset:   #ff8c42;
+  --col-border:   #2a2f3f;
+  --font-display: 'Syne', sans-serif;
+  --font-mono:    'Fira Code', monospace;
+}
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--col-bg);
+  color: var(--col-cream);
+  font-family: var(--font-display);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   HEADER
+============================================================ */
+header {
+  background: var(--col-surface);
+  border-bottom: 1px solid var(--col-border);
+  padding: 28px 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+header .badge {
+  background: var(--col-coral);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+header h1 {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+header span {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--col-amber);
+  font-family: var(--font-mono);
+}
+
+/* ============================================================
+   CONCEPT CHIPS STRIP
+============================================================ */
+.concept-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px 40px;
+  background: var(--col-surface);
+  border-bottom: 1px solid var(--col-border);
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  border: 1px solid;
+  opacity: 0.85;
+}
+
+.chip.c1 { border-color: var(--col-coral); color: var(--col-coral); }
+.chip.c2 { border-color: var(--col-cyan);  color: var(--col-cyan); }
+.chip.c3 { border-color: var(--col-amber); color: var(--col-amber); }
+
+/* ============================================================
+   MAIN — centered with max-width + margin auto
+   KEY CONCEPT from lab 2.2
+============================================================ */
+main {
+  max-width: 960px;      /* element stops growing at 960px */
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: auto;     /* auto distributes remaining     */
+  margin-right: auto;    /* space equally left + right     */
+  padding: 0 20px;
+}
+
+/* ============================================================
+   PAGE TITLE
+============================================================ */
+.page-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.page-title h2 {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 800;
+  color: var(--col-sunset);
+  border-bottom: 2px solid var(--col-amber);
+  display: inline-block;
+  padding-bottom: 8px;
+  letter-spacing: -1px;
+}
+
+.page-title p {
+  margin-top: 12px;
+  color: var(--col-cream);
+  opacity: 0.7;
+  font-size: 1rem;
+}
+
+/* ============================================================
+   SECTIONS — styled cards with hover transition
+============================================================ */
+section {
+  background: var(--col-card);
+  padding: 32px 36px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  border-left: 6px solid var(--col-coral);
+
+  /* TRANSITION: property  duration  timing-function */
+  transition:
+    border-left-color 0.6s ease,
+    box-shadow        0.4s ease,
+    transform         0.3s ease;
+}
+
+section:hover {
+  border-left-color: var(--col-cyan);
+  box-shadow: 0 8px 40px rgba(0, 229, 255, 0.08);
+  transform: translateX(4px);
+}
+
+/* H2 — section headings */
+section h2 {
+  color: var(--col-sunset);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  border-bottom: 2px solid var(--col-amber);
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+
+/* H5 — sub-headings */
+section h5 {
+  color: var(--col-amber);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 20px 0 8px;
+}
+
+/* Paragraphs */
+section p {
+  color: var(--col-cream);
+  font-size: 0.97rem;
+  line-height: 1.8;
+}
+
+/* Bold text */
+section strong {
+  color: var(--col-coral);
+}
+
+/* Italic text */
+section em {
+  color: var(--col-cyan);
+  font-style: italic;
+}
+
+/* ============================================================
+   CODE BLOCKS
+============================================================ */
+.code-block {
+  background: #0a0c11;
+  border: 1px solid var(--col-border);
+  border-radius: 8px;
+  padding: 22px 26px;
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+.code-block pre {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--col-cream);
+}
+
+.code-block .kw  { color: var(--col-coral); }
+.code-block .val { color: var(--col-cyan); }
+.code-block .cm  { color: #555; font-style: italic; }
+.code-block .sel { color: var(--col-amber); }
+
+/* ============================================================
+   TRANSFORM DEMO GRID
+============================================================ */
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.demo-card {
+  background: #0f1119;
+  border: 1px solid var(--col-border);
+  border-radius: 8px;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-card .label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--col-amber);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.demo-card .box {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  margin: 0 auto;
+  background: var(--col-coral);
+}
+
+/* Card 1 — color */
+.demo-card.dc-color .box       { transition: background-color 0.8s ease; }
+.demo-card.dc-color:hover .box { background-color: var(--col-cyan); }
+
+/* Card 2 — scale */
+.demo-card.dc-scale .box       { transition: transform 0.4s ease; }
+.demo-card.dc-scale:hover .box { transform: scale(1.5); }
+
+/* Card 3 — rotate */
+.demo-card.dc-rotate .box       { transition: transform 0.6s ease-in-out; }
+.demo-card.dc-rotate:hover .box { transform: rotate(180deg); }
+
+/* Card 4 — translate */
+.demo-card.dc-translate .box       { transition: transform 0.4s ease-out; }
+.demo-card.dc-translate:hover .box { transform: translateY(-20px); }
+
+/* Card 5 — skew */
+.demo-card.dc-skew .box       { transition: transform 0.4s linear; }
+.demo-card.dc-skew:hover .box { transform: skewX(-20deg); }
+
+/* Card 6 — multiple */
+.demo-card.dc-multi .box {
+  transition:
+    background-color 0.5s ease,
+    transform        0.5s ease,
+    border-radius    0.5s ease;
+}
+.demo-card.dc-multi:hover .box {
+  background-color: var(--col-amber);
+  transform: rotate(45deg) scale(1.2);
+  border-radius: 50%;
+}
+
+/* ============================================================
+   BUTTON DEMO
+============================================================ */
+.btn-demo {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: var(--col-coral);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background-color 0.5s ease,
+    transform        0.3s ease,
+    letter-spacing   0.3s linear;
+}
+
+.btn-demo:hover {
+  background-color: #8b5cf6;
+  transform: translateY(-3px);
+  letter-spacing: 3px;
+}
+
+/* ============================================================
+   TIMING FUNCTION RACE DEMO
+============================================================ */
+.timing-demos { margin-top: 20px; }
+
+.timing-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.timing-row .t-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--col-cyan);
+  min-width: 100px;
+}
+
+.timing-row .track {
+  flex: 1;
+  height: 6px;
+  background: var(--col-border);
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.timing-row .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--col-coral);
+  position: absolute;
+  top: -4px;
+  left: 0;
+  transition: left 2s var(--tf);
+}
+
+.timing-demos:hover .dot {
+  left: calc(100% - 14px);
+}
+
+/* ============================================================
+   MARGIN AUTO VISUAL DEMO
+============================================================ */
+.margin-demo-wrap {
+  background: #0a0c11;
+  border: 1px solid var(--col-border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 20px;
+}
+
+.margin-demo-outer {
+  background: rgba(255, 107, 107, 0.08);
+  border: 1px dashed var(--col-coral);
+  border-radius: 4px;
+  padding: 10px;
+  position: relative;
+}
+
+.margin-demo-inner {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--col-card);
+  border: 2px solid var(--col-cyan);
+  border-radius: 4px;
+  padding: 14px 20px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--col-cyan);
+  position: relative;
+}
+
+.margin-demo-inner::before,
+.margin-demo-inner::after {
+  content: '← auto →';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  color: var(--col-amber);
+  white-space: nowrap;
+}
+
+.margin-demo-inner::before { right: 100%; padding-right: 6px; }
+.margin-demo-inner::after  { left: 100%;  padding-left: 6px; }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  text-align: center;
+  padding: 30px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #3a4060;
+  border-top: 1px solid var(--col-border);
+}
+
+footer span { color: var(--col-coral); }
+/* ============================================================
+   CSS VARIABLES  (:root pseudo-class selector)
+   :root targets the <html> element — highest in the tree.
+   Variables: declared with --name, used with var(--name).
+============================================================ */
+:root {
+  --col-bg:         #0d0f14;
+  --col-surface:    #14171f;
+  --col-card:       #1a1e2a;
+  --col-text:       #e8e0d4;       /* cream */
+  --col-coral:      #ff6b6b;
+  --col-amber:      #ffb347;
+  --col-cyan:       #00e5ff;
+  --col-cyan-light: #7fffff;
+  --col-cyan-deep:  #0097a7;
+  --col-sunset:     #ff8c42;
+  --col-pink-soft:  #f48fb1;
+  --col-border:     #2a2f3f;
+  --font-main:      'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--col-bg);
+  color: var(--col-text);
+  font-family: var(--font-main);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   HEADER
+============================================================ */
+header {
+  background-color: var(--col-surface);
+  border-bottom: 1px solid var(--col-border);
+  padding: 24px 40px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: var(--col-text);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+header h1 strong {
+  color: var(--col-coral);
+}
+
+/* ============================================================
+   NAV  (from lab 2.1)
+============================================================ */
+nav {
+  margin-top: 10px;
+}
+
+/* UL inside nav — flex container */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Links inside nav */
+nav ul li a {
+  color: var(--col-cyan-deep);
+  text-decoration: none;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--col-cyan-light);
+  display: inline-block;
+  transition:
+    background-color 0.3s ease,
+    border-color     0.3s ease;
+}
+
+/* :hover — pseudo-class selector (single colon)
+   Targets the element based on STATE (mouse over). */
+nav ul li a:hover {
+  background-color: var(--col-cyan);
+  border-color: var(--col-pink-soft);
+  color: var(--col-bg);
+}
+
+/* ============================================================
+   MAIN  (from lab 2.2)
+   Centering a block element: max-width + margin auto
+============================================================ */
+main {
+  max-width: 960px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+/* ============================================================
+   SECTIONS  (from lab 2.2)
+============================================================ */
+section {
+  background-color: var(--col-card);
+  padding: 32px 36px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  border-left: 6px solid var(--col-coral);
+  transition:
+    border-left-color 0.6s ease,
+    box-shadow        0.4s ease,
+    transform         0.3s ease;
+}
+
+section:hover {
+  border-left-color: var(--col-cyan);
+  box-shadow: 0 8px 40px rgba(0, 229, 255, 0.08);
+  transform: translateX(4px);
+}
+
+/* H2 — section headings */
+section h2 {
+  color: var(--col-sunset);
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--col-amber);
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+
+/* H5 — sub-headings */
+section h5 {
+  color: var(--col-amber);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 20px 0 8px;
+}
+
+/* H4 — character titles (fixed in lab 2.3: was not visible on dark bg)
+   Group selector: h4 added alongside h5 so both get cream colour. */
+section h4,
+section h5 {
+  color: var(--col-amber);
+}
+
+section h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 20px 0 6px;
+  color: var(--col-text);   /* cream — makes titles legible on dark bg */
+}
+
+/* Paragraphs */
+section p {
+  color: var(--col-text);
+  font-size: 0.97rem;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+/* Bold text */
+section strong {
+  color: var(--col-coral);
+}
+
+/* Italic text */
+section em {
+  color: var(--col-cyan);
+  font-style: italic;
+}
+
+/* ============================================================
+   LAB 2.3 — LIST STYLES (new this lab)
+   -------------------------------------------------------
+   Descendant + group selector:
+   targets both ul and ol that are inside main.
+============================================================ */
+
+/* UL and OL inside main
+   padding-left: 24px  → indents list items to the right
+   color: cream        → inherited by all child elements    */
+main ul,
+main ol {
+  padding-left: 24px;
+  color: var(--col-text);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* LI inside main
+   margin-left: 4px → moves items slightly further right   */
+main li {
+  margin-left: 4px;
+  line-height: 1.9;
+}
+
+/* ============================================================
+   :first-child  — PSEUDO-CLASS selector  (single colon :)
+   -------------------------------------------------------
+   Pseudo-class = targets an element based on STATE/POSITION.
+   :first-child selects the FIRST li in any list inside main.
+
+   Use case: highlight the most important item at the top.
+============================================================ */
+main li:first-child {
+  color: var(--col-pink-soft);
+  font-weight: bold;
+}
+
+/* ============================================================
+   ::marker  — PSEUDO-ELEMENT selector  (double colon ::)
+   -------------------------------------------------------
+   Pseudo-element = targets a specific PART of an element.
+   ::marker selects the bullet point or number of a list item.
+
+   KEY DIFFERENCE:
+   :first-child  → single colon  → targets STATE / POSITION
+   ::marker      → double colon  → targets PART of an element
+
+   Here we colour the bullets of UL items cyan.
+============================================================ */
+main ul li::marker {
+  color: var(--col-cyan);
+}
+
+/* ============================================================
+   ::marker for OL  — ordered list numbers get coral colour
+   Same pseudo-element selector, different list type.
+============================================================ */
+main ol li::marker {
+  color: var(--col-coral);
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  color: var(--col-border);
+  border-top: 1px solid var(--col-border);
+}
