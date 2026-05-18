@@ -1469,3 +1469,295 @@ footer p {
   font-size: 13px;
   line-height: 1.6;
 }
+/* ============================================================
+   CSS VARIABLES
+============================================================ */
+:root {
+  --col-bg:         #0d0f14;
+  --col-surface:    #14171f;
+  --col-card:       #1a1e2a;
+  --col-text:       #e8e0d4;
+  --col-coral:      #ff6b6b;
+  --col-amber:      #ffb347;
+  --col-cyan:       #00e5ff;
+  --col-cyan-light: #7fffff;
+  --col-cyan-deep:  #0097a7;
+  --col-sunset:     #ff8c42;
+  --col-pink-soft:  #f48fb1;
+  --col-muted:      #7a8099;
+  --col-border:     #2a2f3f;
+  --font-main:      'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--col-bg);
+  color: var(--col-text);
+  font-family: var(--font-main);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   HEADER  (lab 2.1)
+============================================================ */
+header {
+  background-color: var(--col-surface);
+  border-bottom: 1px solid var(--col-border);
+  padding: 24px 40px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: var(--col-text);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+header h1 strong {
+  color: var(--col-coral);
+}
+
+/* ============================================================
+   NAV  (lab 2.1)
+============================================================ */
+nav {
+  margin-top: 10px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+nav ul li a {
+  color: var(--col-cyan-deep);
+  text-decoration: none;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--col-cyan-light);
+  display: inline-block;
+  transition:
+    background-color 0.3s ease,
+    border-color     0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: var(--col-cyan);
+  border-color: var(--col-pink-soft);
+  color: var(--col-bg);
+}
+
+/* ============================================================
+   MAIN  (lab 2.2)
+============================================================ */
+main {
+  max-width: 960px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+/* ============================================================
+   SECTIONS  (lab 2.2)
+============================================================ */
+section {
+  background-color: var(--col-card);
+  padding: 32px 36px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  border-left: 6px solid var(--col-coral);
+  transition:
+    border-left-color 0.6s ease,
+    box-shadow        0.4s ease,
+    transform         0.3s ease;
+}
+
+section:hover {
+  border-left-color: var(--col-cyan);
+  box-shadow: 0 8px 40px rgba(0, 229, 255, 0.08);
+  transform: translateX(4px);
+}
+
+section h2 {
+  color: var(--col-sunset);
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--col-amber);
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+
+section h5 {
+  color: var(--col-amber);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 20px 0 8px;
+}
+
+section h4,
+section h5 {
+  color: var(--col-amber);
+}
+
+section h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 20px 0 6px;
+  color: var(--col-text);
+}
+
+section p {
+  color: var(--col-text);
+  font-size: 0.97rem;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+section strong {
+  color: var(--col-coral);
+}
+
+section em {
+  color: var(--col-cyan);
+  font-style: italic;
+}
+
+/* ============================================================
+   LIST STYLES  (lab 2.3)
+============================================================ */
+main ul,
+main ol {
+  padding-left: 24px;
+  color: var(--col-text);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+main li {
+  margin-left: 4px;
+  line-height: 1.9;
+}
+
+main li:first-child {
+  color: var(--col-pink-soft);
+  font-weight: bold;
+}
+
+main ul li::marker {
+  color: var(--col-cyan);
+}
+
+main ol li::marker {
+  color: var(--col-coral);
+}
+
+/* ============================================================
+   IMAGE  (lab 2.4)
+============================================================ */
+img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  margin-top: 12px;
+}
+
+/* ============================================================
+   HR  (lab 2.4)
+============================================================ */
+hr {
+  border: 1px solid var(--col-cyan);
+  margin: 0;
+}
+
+/* ============================================================
+   FOOTER  (lab 2.4)
+============================================================ */
+footer {
+  text-align: center;
+  padding: 24px 40px;
+  background-color: var(--col-surface);
+}
+
+footer p {
+  color: var(--col-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   LAB 2.5 — CHARACTERS GRID (new this lab)
+   -------------------------------------------------------
+   STEP 1: .characters-grid is the GRID CONTAINER.
+   display: grid turns it into a grid layout.
+   Its direct children (the <article> elements) become
+   grid items and are arranged automatically.
+
+   STEP 2: Define COLUMNS
+   grid-template-columns: 1fr 1fr
+   → Two equal columns using fractional units.
+   → No rows defined = browser assumes one row.
+   → If more articles were added they would wrap to new rows
+     automatically following the normal flow.
+
+   gap: 10px → space between the two article cards.
+
+   NOTE: We do NOT use grid-template-areas here because
+   the items just follow normal flow (first article in
+   column 1, second article in column 2). grid-template-areas
+   is only needed when items must be explicitly placed
+   in specific named regions (like the grid demo layout).
+============================================================ */
+.characters-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ============================================================
+   ARTICLE — character cards
+   -------------------------------------------------------
+   Each article is a grid item inside .characters-grid.
+   We style them as cards with a subtle background and
+   a border on the bottom of the h4 heading to separate
+   the name from the description text.
+============================================================ */
+article {
+  background-color: var(--col-bg);
+  padding: 20px;
+  border-radius: 6px;
+}
+
+/* border-bottom on the h4 heading inside each article
+   draws an underline beneath Lucia / Jason as a divider. */
+article h4 {
+  border-bottom: 2px solid var(--col-coral);
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  color: var(--col-text);
+}
+
+article p {
+  color: var(--col-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
