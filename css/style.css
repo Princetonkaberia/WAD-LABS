@@ -959,3 +959,240 @@ footer {
   color: var(--col-border);
   border-top: 1px solid var(--col-border);
 }
+/* ============================================================
+   CSS VARIABLES
+   :root targets the highest-level element (<html>).
+   Variables declared with --name, accessed with var(--name).
+   Benefits: reuse values, consistent colours, easy theming.
+============================================================ */
+:root {
+  --col-bg:          #0d0f14;
+  --col-surface:     #14171f;
+  --col-card:        #1a1e2a;
+  --col-text:        #e8e0d4;
+  --col-coral:       #ff6b6b;
+  --col-amber:       #ffb347;
+  --col-cyan:        #00e5ff;
+  --col-cyan-light:  #7fffff;
+  --col-cyan-deep:   #0097a7;
+  --col-sunset:      #ff8c42;
+  --col-pink-soft:   #f48fb1;
+  --col-border:      #2a2f3f;
+  --font-display:    'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--col-bg);
+  color: var(--col-text);
+  font-family: var(--font-display);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   HEADER
+============================================================ */
+header {
+  background-color: var(--col-surface);
+  border-bottom: 1px solid var(--col-border);
+  padding: 24px 40px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: var(--col-text);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+header h1 strong {
+  color: var(--col-coral);
+}
+
+/* ============================================================
+   NAV
+   margin-top adds space between the h1 and the nav.
+============================================================ */
+nav {
+  margin-top: 10px;
+}
+
+/* ============================================================
+   NAV > UL  — flex container
+   -------------------------------------------------------
+   LIST STYLES
+   list-style: none  → removes the default bullet points
+   padding: 0        → removes default browser indent
+   margin: 0         → removes default browser spacing
+
+   FLEXBOX
+   display: flex          → turns ul into a flex container;
+                            each li becomes a flex item
+   justify-content: center → centres items along the x-axis
+   gap: 10px              → adds 10px space BETWEEN items
+                            (cleaner than margins on each li)
+============================================================ */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ============================================================
+   NAV > UL > LI > A  — individual link styling
+   -------------------------------------------------------
+   TEXT PROPERTIES
+   text-decoration: none  → removes default underline on <a>
+   text-transform: uppercase → converts text to ALL CAPS
+   letter-spacing: 2px    → spreads letters apart
+   font-size: 1.1em       → slightly larger than parent (em
+                            is a relative unit based on parent)
+
+   BOX MODEL
+   padding: 8px 16px      → two values:
+                            top & bottom = 8px
+                            left & right = 16px
+   border-radius: 8px     → rounds all four corners
+
+   BORDER  (shorthand: width  style  color)
+   border: 1px solid var(--col-cyan-light)
+============================================================ */
+nav ul li a {
+  color: var(--col-cyan-deep);
+  text-decoration: none;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--col-cyan-light);
+
+  /* Keep display inline-block so padding + border render */
+  display: inline-block;
+
+  /* --------------------------------------------------------
+     TRANSITION
+     Placed on the BASE selector (not :hover) so the
+     animation plays on BOTH hover-over and hover-off.
+
+     Syntax: property  duration  timing-function
+     border-color 0.3s ease  → smooth border colour change
+     background   0.3s ease  → smooth background change
+  -------------------------------------------------------- */
+  transition:
+    background-color 0.3s ease,
+    border-color     0.3s ease;
+}
+
+/* ============================================================
+   PSEUDO-CLASS :hover
+   -------------------------------------------------------
+   :hover applies styles ONLY when the mouse is over
+   the element. The transition above makes the change smooth.
+
+   background-color → fills the link with cyan on hover
+   border-color     → changes border to pink for contrast
+============================================================ */
+nav ul li a:hover {
+  background-color: var(--col-cyan);
+  border-color: var(--col-pink-soft);
+  color: var(--col-bg);
+}
+
+/* ============================================================
+   MAIN — centred block element
+   max-width + margin auto = responsive horizontal centring
+============================================================ */
+main {
+  max-width: 960px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+/* ============================================================
+   SECTIONS
+============================================================ */
+section {
+  background-color: var(--col-card);
+  padding: 32px 36px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  border-left: 6px solid var(--col-coral);
+
+  transition:
+    border-left-color 0.6s ease,
+    box-shadow        0.4s ease,
+    transform         0.3s ease;
+}
+
+section:hover {
+  border-left-color: var(--col-cyan);
+  box-shadow: 0 8px 40px rgba(0, 229, 255, 0.08);
+  transform: translateX(4px);
+}
+
+/* H2 — section headings */
+section h2 {
+  color: var(--col-sunset);
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--col-amber);
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+
+/* H5 — sub-headings */
+section h5 {
+  color: var(--col-amber);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 20px 0 8px;
+}
+
+/* Paragraphs */
+section p {
+  color: var(--col-text);
+  font-size: 0.97rem;
+  line-height: 1.8;
+}
+
+/* Bold text */
+section strong {
+  color: var(--col-coral);
+}
+
+/* Italic text */
+section em {
+  color: var(--col-cyan);
+  font-style: italic;
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  color: var(--col-border);
+  border-top: 1px solid var(--col-border);
+}
