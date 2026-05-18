@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Lab 2.2 — Styling the Main Element</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="badge">Lab</div>
+    <h1>CSS Lab 2.2 — Styling the Main Element</h1>
+    <span>2.2 / main section</span>
+  </header>
+
+  <!-- CONCEPT CHIPS -->
+  <div class="concept-strip">
+    <span class="chip c1">max-width</span>
+    <span class="chip c1">margin: auto</span>
+    <span class="chip c2">transition</span>
+    <span class="chip c2">transform</span>
+    <span class="chip c3">pseudo-class :hover</span>
+    <span class="chip c3">timing-functions</span>
+  </div>
+
+  <!-- MAIN — centered with max-width + margin auto -->
+  <main>
+
+    <div class="page-title">
+      <h2>Main Section Concepts</h2>
+      <p>Hover over each section card to see live transitions in action.</p>
+    </div>
+
+    <!-- SECTION 1: Centering block elements -->
+    <section>
+      <h2>Centering Block Elements</h2>
+
+      <h5>How it works</h5>
+      <p>
+        Block elements (<strong>div, section, main, article…</strong>) naturally occupy
+        <em>100% of available width</em>. To center one horizontally:
+      </p>
+      <ol style="color:var(--col-cream);padding-left:22px;margin-top:10px;line-height:2">
+        <li>Give it a <strong>max-width</strong> (so it doesn't span the full viewport)</li>
+        <li>Set <strong>margin-left: auto</strong> and <strong>margin-right: auto</strong></li>
+      </ol>
+
+      <div class="code-block"><pre
+><span class="cm">/* ✅ Responsive centering */</span>
+<span class="sel">main</span> {
+  <span class="kw">max-width</span>:    <span class="val">960px</span>;   <span class="cm">/* shrinks on small screens */</span>
+  <span class="kw">margin-left</span>:  <span class="val">auto</span>;
+  <span class="kw">margin-right</span>: <span class="val">auto</span>;
+
+  <span class="cm">/* shorthand version: */</span>
+  <span class="kw">margin</span>: <span class="val">20px auto</span>;
+}
+
+<span class="cm">/* ❌ Avoid fixed width — breaks small screens */</span>
+<span class="sel">main</span> {
+  <span class="kw">width</span>: <span class="val">960px</span>;   <span class="cm">/* stays 960px even on a 400px phone */</span>
+}</pre></div>
+
+      <h5>Visual demo</h5>
+      <div class="margin-demo-wrap">
+        <div class="margin-demo-outer">
+          <div class="margin-demo-inner">max-width element</div>
+        </div>
+        <p style="margin-top:10px;font-size:12px;color:#555;font-family:var(--font-mono);">
+          Outer = full width · Inner = max-width + margin auto
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CSS Transitions -->
+    <section>
+      <h2>CSS Transitions</h2>
+
+      <h5>Syntax</h5>
+      <p>
+        A transition makes a style change happen <em>smoothly over time</em> instead of
+        <strong>instantly</strong>. Two properties are required; two are optional.
+      </p>
+
+      <div class="code-block"><pre
+><span class="cm">/* Longhand */</span>
+<span class="sel">section</span> {
+  <span class="kw">transition-property</span>:        <span class="val">border-color</span>;  <span class="cm">/* required */</span>
+  <span class="kw">transition-duration</span>:        <span class="val">0.6s</span>;          <span class="cm">/* required */</span>
+  <span class="kw">transition-timing-function</span>: <span class="val">ease</span>;          <span class="cm">/* optional */</span>
+  <span class="kw">transition-delay</span>:           <span class="val">0s</span>;            <span class="cm">/* optional */</span>
+}
+
+<span class="cm">/* Shorthand ← preferred */</span>
+<span class="sel">section</span> {
+  <span class="kw">transition</span>: <span class="val">border-color 0.6s ease</span>;
+}
+
+<span class="cm">/* Multiple properties */</span>
+<span class="sel">button</span> {
+  <span class="kw">transition</span>:
+    <span class="val">background-color 0.5s ease</span>,
+    <span class="val">transform        0.3s ease</span>,
+    <span class="val">letter-spacing   0.3s linear</span>;
+}</pre></div>
+
+      <h5>Button demo — hover me</h5>
+      <button class="btn-demo">Hover over me</button>
+    </section>
+
+    <!-- SECTION 3: Timing functions -->
+    <section>
+      <h2>Timing Functions</h2>
+
+      <h5>Hover the block below to watch all five timing functions race</h5>
+      <p>
+        The timing function controls <em>how fast</em> a transition moves at each moment
+        of its duration — <strong>not</strong> how long it takes overall.
+      </p>
+
+      <div class="timing-demos">
+        <div class="timing-row">
+          <span class="t-label">ease</span>
+          <div class="track"><div class="dot" style="--tf:ease"></div></div>
+        </div>
+        <div class="timing-row">
+          <span class="t-label">linear</span>
+          <div class="track"><div class="dot" style="--tf:linear"></div></div>
+        </div>
+        <div class="timing-row">
+          <span class="t-label">ease-in</span>
+          <div class="track"><div class="dot" style="--tf:ease-in"></div></div>
+        </div>
+        <div class="timing-row">
+          <span class="t-label">ease-out</span>
+          <div class="track"><div class="dot" style="--tf:ease-out"></div></div>
+        </div>
+        <div class="timing-row">
+          <span class="t-label">ease-in-out</span>
+          <div class="track"><div class="dot" style="--tf:ease-in-out"></div></div>
+        </div>
+      </div>
+
+      <div class="code-block" style="margin-top:20px"><pre
+><span class="cm">/* Timing options */</span>
+<span class="kw">ease</span>         <span class="cm">/* slow → fast → slow  (default)     */</span>
+<span class="kw">linear</span>       <span class="cm">/* same speed throughout               */</span>
+<span class="kw">ease-in</span>      <span class="cm">/* starts slow, ends fast              */</span>
+<span class="kw">ease-out</span>     <span class="cm">/* starts fast, ends slow              */</span>
+<span class="kw">ease-in-out</span>  <span class="cm">/* slow start + slow end               */</span></pre></div>
+    </section>
+
+    <!-- SECTION 4: CSS Transforms -->
+    <section>
+      <h2>CSS Transforms</h2>
+
+      <h5>Hover each card to see the transform</h5>
+      <p>
+        Transforms <em>move or reshape</em> an element. Combine with <strong>transition</strong>
+        to make changes smooth. Without a transition the change is instant.
+      </p>
+
+      <div class="demo-grid">
+        <div class="demo-card dc-color">
+          <span class="label">color</span>
+          <div class="box"></div>
+        </div>
+        <div class="demo-card dc-scale">
+          <span class="label">scale(1.5)</span>
+          <div class="box"></div>
+        </div>
+        <div class="demo-card dc-rotate">
+          <span class="label">rotate(180deg)</span>
+          <div class="box"></div>
+        </div>
+        <div class="demo-card dc-translate">
+          <span class="label">translateY(-20px)</span>
+          <div class="box"></div>
+        </div>
+        <div class="demo-card dc-skew">
+          <span class="label">skewX(-20deg)</span>
+          <div class="box"></div>
+        </div>
+        <div class="demo-card dc-multi">
+          <span class="label">multi-transform</span>
+          <div class="box"></div>
+        </div>
+      </div>
+
+      <div class="code-block" style="margin-top:24px"><pre
+><span class="cm">/* Always put transition on the BASE selector, not :hover */</span>
+<span class="sel">div</span> {
+  <span class="kw">transition</span>: <span class="val">transform 1s ease</span>;
+}
+
+<span class="sel">div:hover</span> {
+  <span class="kw">transform</span>: <span class="val">scale(1.5)</span>;
+  <span class="cm">/* or: rotate(180deg)      */</span>
+  <span class="cm">/* or: translateY(-20px)   */</span>
+  <span class="cm">/* or: skewX(-20deg)       */</span>
+  <span class="cm">/* combine multiple:       */</span>
+  <span class="kw">transform</span>: <span class="val">rotate(45deg) scale(1.2)</span>;
+}</pre></div>
+    </section>
+
+    <!-- SECTION 5: Pseudo-class :hover -->
+    <section>
+      <h2>Pseudo-class :hover</h2>
+
+      <h5>State-based styling</h5>
+      <p>
+        The <strong>:hover</strong> pseudo-class activates when the pointer moves over an element.
+        Any CSS property change inside <em>:hover</em> is eligible for a transition — the browser
+        animates from the old value to the new value.
+      </p>
+
+      <div class="code-block"><pre
+><span class="sel">section</span> {
+  <span class="kw">border-left</span>: <span class="val">6px solid coral</span>;
+  <span class="kw">transition</span>: <span class="val">border-color 0.6s ease</span>;  <span class="cm">/* defined HERE */</span>
+}
+
+<span class="sel">section:hover</span> {
+  <span class="kw">border-left-color</span>: <span class="val">cyan</span>;               <span class="cm">/* change triggered here */</span>
+}</pre></div>
+
+      <p style="margin-top:16px;">
+        Other pseudo-classes that trigger transitions:
+        <strong>:focus</strong> (form inputs),
+        <strong>:active</strong> (mouse-down),
+        <strong>:checked</strong> (checkbox / radio).
+      </p>
+    </section>
+
+    <!-- SECTION 6: Quick Reference -->
+    <section>
+      <h2>Quick Reference</h2>
+
+      <h5>max-width vs width</h5>
+      <div class="code-block"><pre
+><span class="kw">width</span>: <span class="val">960px</span>;      <span class="cm">/* fixed — never shrinks, breaks phones  */</span>
+<span class="kw">max-width</span>: <span class="val">960px</span>;  <span class="cm">/* responsive — shrinks below 960px      */</span></pre></div>
+
+      <h5>text-align vs margin auto</h5>
+      <div class="code-block"><pre
+><span class="kw">text-align</span>: <span class="val">center</span>;  <span class="cm">/* centers TEXT inside the element  */</span>
+<span class="kw">margin</span>: <span class="val">0 auto</span>;      <span class="cm">/* centers the ELEMENT itself       */</span></pre></div>
+
+      <h5>Transition shorthand order</h5>
+      <div class="code-block"><pre
+><span class="kw">transition</span>: <span class="val">[property]  [duration]  [timing-fn]  [delay]</span>;
+<span class="cm">/*           required    required    optional     optional  */</span>
+
+<span class="cm">/* Example */</span>
+<span class="kw">transition</span>: <span class="val">border-color 2s ease</span>;</pre></div>
+    </section>
+
+  </main>
+
+  <footer>
+    CSS Lab 2.2 · <span>main element styling</span> · max-width · margin auto · transitions · transforms
+  </footer>
+
+</body>
+</html>
